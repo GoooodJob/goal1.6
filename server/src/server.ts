@@ -1,5 +1,4 @@
 import * as express from 'express'
-
 /**
  * Http的服务器
  */
@@ -28,8 +27,12 @@ export class HttpServer {
             });
             req.on('end', () => {
                 var obj = JSON.parse(data)
-                console.log('end',obj.PhoneNumber);
-                res.send(`${obj.PhoneNumber} POST request to the homepage`);
+                console.log('end',obj.arr);
+                var total = 0;
+                for (var num in obj.arr ) {
+                    total += obj.arr[num];}
+                console.log('结果:', total);
+                res.send(` ${total} POST request to the homepage`);
             });
             
             req.on('close', () => {
@@ -37,6 +40,7 @@ export class HttpServer {
             });
         })
     }
+
 
 
     /**

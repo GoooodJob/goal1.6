@@ -1,7 +1,7 @@
 import * as http from 'http';
  
 var user = {
-    PhoneNumber: '15210943874'
+    arr: [3, 5]
 };
 
 var userString = JSON.stringify(user);
